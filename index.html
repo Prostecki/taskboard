@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <div id="boards">
+
+    </div>
+
+    <div>
+        <div>
+            <input id="cardTitle" type="text">
+        </div>
+        <div>
+            <textarea id="cardDescription"></textarea>
+        </div>
+        <div>
+            <button onclick="cardAdd()" id="cardAdd">Create</button>
+        </div>
+    </div>
+
+<button id="newColumn">
+    Add a column
+</button>
+
+<template id="tmpl-board">
+    <div class="board">
+        <div class="boardHeader">
+            ${board_header}
+        </div>
+        <div class="boardContent">
+            ${board_content}
+        </div>
+    </div>
+</template>
+
+<template id="tmpl-column">
+    <div class="column">
+        <div class="columnHeader">
+            ${column_header}
+        </div>
+        <div class="columnContent">
+            ${column_content}
+        </div>
+    </div>
+</template>
+
+<template id="tmpl-card">
+    <div class="card">
+        <div class="cardHeader">
+            ${card_header}
+        </div>
+        <div class="cardContent">
+            ${card_content}
+        </div>
+    </div>
+</template>
+
+
+<script src="js/script.js"></script>
+</body>
+</html>
