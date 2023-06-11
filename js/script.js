@@ -18,7 +18,7 @@ if(data == null) {
         ]
     };
 } else {
-    data = JSON.parse(data);
+    data = JSON.parse(data); 
 }
 
 

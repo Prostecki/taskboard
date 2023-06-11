@@ -11,8 +11,16 @@ body {
     background-color: limegreen;
 }
 
-.boardHeader {
+.boardHeader input {
     font-size: 40px;
+    background-color: transparent;
+    border: none;
+    color: white;
+}
+
+.boardHeader input:focus {
+    background-color: white;
+    color: black;
 }
 
 .boardContent {
