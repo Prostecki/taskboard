@@ -1,20 +1,38 @@
-let data = {
-    "boards":[
-        {
-            "title":"inordic",
-            "columns":[
-                {
-                    "title":"tasks",
-                    "cards":[
+//create a taskboard's model
+let data = localStorage.getItem('boards');
+//if it doestn't save, then render a start object
+if(data == null) {
+   data = {
+        "boards":[
+            {
+                "title":"Mark",
+                "columns":[
+                    {
+                        "title":"Tasks",
+                        "cards":[
+    
+                        ]
+                    }
+                ]
+            }
+        ]
+    };
+} else {
+    data = JSON.parse(data);
+}
 
-                    ]
-                }
-            ]
-        }
-    ]
-};
+
 
 renderBoards();
+
+//function of saving
+function save() {
+    //codding data to JSON (because we can save only string on LocalStorage)
+    let dataJson = JSON.stringify(data);
+
+    //save to LocalStorage
+    localStorage.setItem('boards', dataJson);
+}
 
 //function of rendering boards
 function renderBoards() {
@@ -25,6 +43,9 @@ function renderBoards() {
 
     //declare a container for boards
     let container = document.getElementById('boards');
+
+    // clear boards
+    container.innerHTML = '';
 
     for (let i = 0; i < data['boards'].length; i++) {
 
@@ -72,6 +93,11 @@ function columnAdd() {
 
     //run a model in console
     console.log(data);
+
+    // rerender boards
+    renderBoards();
+
+    save();
 }
 
 const newColumn = document.getElementById('newColumn');
@@ -96,6 +122,11 @@ function cardAdd() {
 
     //run a model in console
     console.log(data);
+
+    //rerender boards
+    renderBoards();
+
+    save();
 }
 
 const buttonCard = document.getElementById('cardAdd');

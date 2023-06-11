@@ -1,0 +1,41 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+#boards {
+    font-family: Arial;
+}
+
+.board {
+    background-color: limegreen;
+}
+
+.boardHeader {
+    font-size: 40px;
+}
+
+.boardContent {
+    display: flex;
+}
+
+.column {
+    width: 250px;
+    background-color: gainsboro;
+    margin: 10px;
+}
+
+.columnHeader {
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.columnContent {
+    padding: 5px;
+}
+
+.card {
+    background-color: ghostwhite;
+    border-radius: 5px;
+    margin: 5px 0;
+}
