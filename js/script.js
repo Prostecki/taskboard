@@ -61,6 +61,8 @@ function renderBoards() {
 
                 //html of one card
                 cardsHtml = tmpl_card.replace('${card_header}', data['boards'][i]['columns'][j]['cards'][k]['title'])
+                                     .replace('${columnNumber}', j)
+                                     .replace('${cardNumber}', k)
                                      .replace('${card_content}', data['boards'][i]['columns'][j]['cards'][k]['description']);
 
                 //add a text of card to cards of COLUMNS
@@ -70,6 +72,7 @@ function renderBoards() {
             //html of one of column
             columnHtml = tmpl_column.replace('${column_header}', data['boards'][i]['columns'][j]['title'])
                                     .replace('${columnNumber}', j)
+                                    .replace('${columnNumber}', j)
                                     .replace('${column_content}', columnCards);
 
             //add a text of COLUMN to columns of BOARD
@@ -77,8 +80,22 @@ function renderBoards() {
         }
 
         container.innerHTML += tmpl_board.replace('${board_header}', data['boards'][i]['title'])
+                                         .replace('${boardNumber}', i)
                                          .replace('${board_content}', boardColumns);
     }
+}
+
+//rename boards
+function boardRename(number){
+    
+    //declare
+    let name = event.target.value;
+
+     //rewrite name of column in model
+     data['boards'][number]['title'] = name;
+
+     save();
+
 }
 
 //function of create a column
@@ -101,6 +118,20 @@ function columnAdd() {
     save();
 }
 
+//rename a column
+function columnRename(number) {
+
+    //declare an input's value
+    let name = event.target.value;
+
+    //rewrite name of column in model
+    data['boards'][0]['columns'][number]['title'] = name;
+
+    //save
+    save();
+    
+}
+
 //function for deleting columns
 function columnDelete(number) {
 
@@ -114,9 +145,10 @@ function columnDelete(number) {
     save();
     //re-render
     renderBoards();
-    
+
     }
 }
+
 
 const newColumn = document.getElementById('newColumn');
 newColumn.addEventListener('click', columnAdd);
@@ -146,6 +178,28 @@ function cardAdd() {
 
     save();
 }
+
+//delete card
+function cardDelete(columnNumber, cardNumber) {
+
+    //ask to confirm
+    let ok = confirm('Do you really want to delete a card?');
+
+    if (ok) {
+        
+    //delete a column from a model
+    data['boards'][0]['columns'][columnNumber]['cards'].splice(cardNumber, 1);
+
+    //save
+    save();
+
+    //re-render
+    renderBoards();
+
+    }
+}   
+
+
 
 const buttonCard = document.getElementById('cardAdd');
 

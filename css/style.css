@@ -43,7 +43,21 @@ body {
 
 .columnHeader {
     font-size: 25px;
+    padding: 5px;
     font-weight: bold;
+}
+
+.columnHeader input {
+    font-size: 25px;
+    background-color: transparent;
+    border: none;
+    color: white;
+    max-width: 220px;
+}
+
+.columnHeader input:focus {
+    background-color: white;
+    color: black;
 }
 
 .columnContent {
@@ -63,4 +77,17 @@ body {
     background-color: ghostwhite;
     border-radius: 5px;
     margin: 5px 0;
+    position: relative;
+}
+
+.card:hover .cardDelete {
+    display: block;
+}
+
+.cardDelete {
+    position: absolute;
+    display: none;
+    top: 2px;
+    right: 5px;
+    cursor: pointer;
 }

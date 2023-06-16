@@ -30,7 +30,7 @@
 <template id="tmpl-board">
     <div class="board">
         <div class="boardHeader">
-            <input type="text" value="${board_header}">
+            <input type="text" value="${board_header}" oninput="boardRename(${boardNumber})">
         </div>
         <div class="boardContent">
             <div class="flex-box">
@@ -50,7 +50,7 @@
     <div class="column">
         <div class="columnHeader flex-box">
             <div>
-                ${column_header}
+                <input type="text" value="${column_header}" oninput="columnRename(${columnNumber})">
             </div>
             <div class="columnDelete toRight" onclick="columnDelete(${columnNumber})">
                 &#10006
@@ -69,6 +69,9 @@
         </div>
         <div class="cardContent">
             ${card_content}
+        </div>
+        <div class="cardDelete" onclick="cardDelete(${columnNumber}, ${cardNumber})">
+            &#10006
         </div>
     </div>
 </template>
