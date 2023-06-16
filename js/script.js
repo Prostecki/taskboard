@@ -149,10 +149,6 @@ function columnDelete(number) {
     }
 }
 
-
-const newColumn = document.getElementById('newColumn');
-newColumn.addEventListener('click', columnAdd);
-
 //function for add a card (task)
 function cardAdd() {
     
@@ -186,7 +182,7 @@ function cardDelete(columnNumber, cardNumber) {
     let ok = confirm('Do you really want to delete a card?');
 
     if (ok) {
-        
+
     //delete a column from a model
     data['boards'][0]['columns'][columnNumber]['cards'].splice(cardNumber, 1);
 
