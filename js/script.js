@@ -69,6 +69,7 @@ function renderBoards() {
 
             //html of one of column
             columnHtml = tmpl_column.replace('${column_header}', data['boards'][i]['columns'][j]['title'])
+                                    .replace('${columnNumber}', j)
                                     .replace('${column_content}', columnCards);
 
             //add a text of COLUMN to columns of BOARD
@@ -98,6 +99,23 @@ function columnAdd() {
     renderBoards();
 
     save();
+}
+
+//function for deleting columns
+function columnDelete(number) {
+
+    //ask to confirm
+    let ok = confirm('Do you really want to delete?');
+
+    if (ok) {
+    //delete a column from a model
+    data['boards'][0]['columns'].splice(number, 1);
+    //save
+    save();
+    //re-render
+    renderBoards();
+    
+    }
 }
 
 const newColumn = document.getElementById('newColumn');
@@ -134,3 +152,8 @@ const buttonCard = document.getElementById('cardAdd');
 buttonCard.addEventListener('click', cardAdd); 
 
 console.log(buttonCard);
+
+
+let exampleJS = ['a', 'y', 'e', 'p', 'm'];
+let newExample = exampleJS.with();
+console.log(newExample);

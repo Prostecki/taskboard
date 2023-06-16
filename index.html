@@ -25,9 +25,7 @@
         </div>
     </div>
 
-<button id="newColumn">
-    Add a column
-</button>
+
 
 <template id="tmpl-board">
     <div class="board">
@@ -35,15 +33,28 @@
             <input type="text" value="${board_header}">
         </div>
         <div class="boardContent">
-            ${board_content}
+            <div class="flex-box">
+                ${board_content}
+            </div>
+            <div>
+                <button id="newColumn">
+                    Add a column
+                </button>
+            </div>
         </div>
+        
     </div>
 </template>
 
 <template id="tmpl-column">
     <div class="column">
-        <div class="columnHeader">
-            ${column_header}
+        <div class="columnHeader flex-box">
+            <div>
+                ${column_header}
+            </div>
+            <div class="columnDelete toRight" onclick="columnDelete(${columnNumber})">
+                &#10006
+            </div>
         </div>
         <div class="columnContent">
             ${column_content}
