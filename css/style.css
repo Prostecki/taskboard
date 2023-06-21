@@ -15,8 +15,13 @@ body {
     margin: 0 0 0 auto;
 }
 
+.ghost {
+    opacity: 0.5;
+}
+
 .board {
     background-color: limegreen;
+    height: 100vh;
 }
 
 .boardHeader input {
@@ -24,6 +29,7 @@ body {
     background-color: transparent;
     border: none;
     color: white;
+    padding: 10px;;
 }
 
 .boardHeader input:focus {
@@ -38,7 +44,9 @@ body {
 .column {
     width: 250px;
     background-color: gainsboro;
-    margin: 10px;
+    margin: 0 10px;
+    /* padding: 5px; */
+    box-sizing: border-box;
 }
 
 .columnHeader {
@@ -80,6 +88,51 @@ body {
     border-radius: 5px;
     margin: 5px 0;
     position: relative;
+    padding: 5px;
+    box-sizing: border-box;
+}
+
+#cardTitle {
+    background-color: white;
+    border-radius: 10px;
+    border: none;
+    width: 200px;
+    height: 20px;
+    margin-bottom: 5px;
+}
+
+#cardTitle:focus {
+    background-color: white;
+    outline: none;
+}
+
+#cardDesctiption {
+    background-color: white;
+    border-radius: 10px;
+    border: none;
+    width: 200px;
+    height: 20px;
+}
+
+#cardDescription:focus {
+    outline: none;
+}
+
+#cardAdd {
+    padding: 5px;
+    width: 80px;
+    background-color: rgb(45, 100, 220);
+    border: none;
+    border-radius: 5px;
+}
+
+.closeForm {
+    width: 20px;
+    height: 20px;
+    background-color: black;
+    color: white;
+    margin: 0 auto;
+    cursor: pointer;
 }
 
 .card:hover .cardDelete {
@@ -92,4 +145,38 @@ body {
     top: 2px;
     right: 5px;
     cursor: pointer;
+}
+
+.bg-fix {
+    background-size: cover;
+    background-position: center;
+}
+
+.appearFormCard {
+    margin: 0 auto;
+    width: 200px;
+    padding: 5px;
+    box-sizing: border-box;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    transition: all 0.4s;
+    opacity: 0.5;
+    cursor: pointer;
+}
+
+.appearFormCard:hover {
+    background-color: grey;
+    border-radius: 10px;
+    transition: all 0.4s;
+    color: white;
+    opacity: 1;
+}
+
+.cardFormAdd {
+    display: none;
+
+}
+
+.activeForm {
+    display: block;
 }

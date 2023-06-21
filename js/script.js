@@ -21,6 +21,20 @@ if(data == null) {
     data = JSON.parse(data); 
 }
 
+let wallpapers = [
+    'https://prostecki.github.io/WallpapersHD/img/1.jpeg',
+    'https://prostecki.github.io/WallpapersHD/img/2.jpeg',
+    'https://prostecki.github.io/WallpapersHD/img/3.jpeg',
+    'https://prostecki.github.io/WallpapersHD/img/4.jpeg',
+    'https://prostecki.github.io/WallpapersHD/img/5.jpeg',
+    'https://prostecki.github.io/WallpapersHD/img/6.jpeg',
+    'https://prostecki.github.io/WallpapersHD/img/7.jpeg',
+    'https://prostecki.github.io/WallpapersHD/img/8.jpeg',
+    'https://prostecki.github.io/WallpapersHD/img/9.jpeg',
+    'https://prostecki.github.io/WallpapersHD/img/animals1.jpeg'
+];
+
+
 
 
 renderBoards();
@@ -80,6 +94,9 @@ function renderBoards() {
         }
 
         container.innerHTML += tmpl_board.replace('${board_header}', data['boards'][i]['title'])
+                                         .replace('${board_background}', data['boards'][i]['background'])
+                                         .replace('${board_background}', data['boards'][i]['background'])
+                                         .replace('${boardNumber}', i)
                                          .replace('${boardNumber}', i)
                                          .replace('${board_content}', boardColumns);
     }
@@ -96,6 +113,22 @@ function boardRename(number){
 
      save();
 
+}
+
+//change a background
+function boardChangeBackground(number) {
+
+    //get a link for background
+    let background = event.target.value;
+
+    //update background in model
+    data['boards'][number]['background'] = background;
+
+    //save
+    save();
+
+    //renderboards
+    renderBoards();
 }
 
 //function of create a column
@@ -175,6 +208,29 @@ function cardAdd() {
     save();
 }
 
+
+//declare form with DOM
+const form = document.querySelector('.cardFormAdd');
+
+//function of appearing card's form
+function appearFormCard() {
+
+    
+    //after click, adding class with method classList.add
+    form.classList.add('activeForm');
+}
+
+function closeForm() {
+
+    let closeButton = document.querySelector('.closeForm');
+
+    closeButton.addEventListener('click', () => {
+        form.classList.remove('activeForm');
+    })
+
+}
+
+
 //delete card
 function cardDelete(columnNumber, cardNumber) {
 
@@ -195,13 +251,11 @@ function cardDelete(columnNumber, cardNumber) {
     }
 }   
 
+// const buttonCard = document.getElementById('cardAdd');
 
+// buttonCard.addEventListener('click', cardAdd); 
 
-const buttonCard = document.getElementById('cardAdd');
-
-buttonCard.addEventListener('click', cardAdd); 
-
-console.log(buttonCard);
+// console.log(buttonCard);
 
 
 let exampleJS = ['a', 'y', 'e', 'p', 'm'];

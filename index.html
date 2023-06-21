@@ -13,7 +13,7 @@
 
     </div>
 
-    <div>
+    <!-- <div id="cardFormAdd">
         <div>
             <input id="cardTitle" type="text">
         </div>
@@ -23,14 +23,17 @@
         <div>
             <button id="cardAdd">Create</button>
         </div>
-    </div>
-
-
+    </div> -->
 
 <template id="tmpl-board">
-    <div class="board">
-        <div class="boardHeader">
-            <input type="text" value="${board_header}" oninput="boardRename(${boardNumber})">
+    <div class="board bg-fix" style="background-image: url('${board_background}');">
+        <div class="boardHeader flex-box">
+            <div>
+                <input type="text" value="${board_header}" oninput="boardRename(${boardNumber})">
+            </div>
+            <div>
+                <input type="text" value="${board_background}" onchange="boardChangeBackground(${boardNumber})">
+            </div>
         </div>
         <div class="boardContent">
             <div class="flex-box">
@@ -59,6 +62,19 @@
         <div class="columnContent">
             ${column_content}
         </div>
+        <div class="appearFormCard" onclick="appearFormCard()">+ Add card</div>
+        <div class="cardFormAdd">
+            <div>
+                <input id="cardTitle" type="text">
+            </div>
+            <div>
+                <textarea id="cardDescription"></textarea>
+            </div>
+            <div class="flex-box">
+                <button id="cardAdd" onclick="cardAdd()">Create</button>
+                <div class="closeForm" onclick="closeForm()"> X </div>
+            </div>
+        </div>
     </div>
 </template>
 
@@ -67,7 +83,7 @@
         <div class="cardHeader">
             ${card_header}
         </div>
-        <div class="cardContent">
+        <div class="cardContent ghost">
             ${card_content}
         </div>
         <div class="cardDelete" onclick="cardDelete(${columnNumber}, ${cardNumber})">
@@ -75,7 +91,6 @@
         </div>
     </div>
 </template>
-
 
 <script src="js/script.js"></script>
 </body>
