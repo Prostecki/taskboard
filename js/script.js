@@ -257,7 +257,10 @@ function cardDelete(columnNumber, cardNumber) {
 
 // console.log(buttonCard);
 
+function openCatalogWallpapers() {
 
-let exampleJS = ['a', 'y', 'e', 'p', 'm'];
-let newExample = exampleJS.with();
-console.log(newExample);
+    const windowCatalog = document.querySelector('.wallpapersCatalog');
+
+    windowCatalog.classList.toggle('appearCatalogWallpapers');
+    
+}
