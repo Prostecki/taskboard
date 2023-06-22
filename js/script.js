@@ -257,10 +257,28 @@ function cardDelete(columnNumber, cardNumber) {
 
 // console.log(buttonCard);
 
+//declare windowCatalog with selector
+const windowCatalog = document.querySelector('.wallpapersCatalog');
+
+//open a window with images of wallpapers
 function openCatalogWallpapers() {
 
-    const windowCatalog = document.querySelector('.wallpapersCatalog');
-
+    //Use a method classList toggle with class during click
     windowCatalog.classList.toggle('appearCatalogWallpapers');
-    
+
+}
+
+const tmplBoard = document.getElementById('tmpl-board');
+
+for (let i = 0; i < wallpapers.length; i++) {
+
+    //declare img with method 'createElement'
+    const img = document.createElement('img');
+
+    //declare img with source - wallpapers[i]
+    img.src = wallpapers[i];
+
+    //use a window for wallpapers and add elements with method 'appendChild'
+    windowCatalog.appendChild(img);
+
 }
