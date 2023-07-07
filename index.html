@@ -13,18 +13,6 @@
 
     </div>
 
-    <!-- <div id="cardFormAdd">
-        <div>
-            <input id="cardTitle" type="text">
-        </div>
-        <div>
-            <textarea id="cardDescription"></textarea>
-        </div>
-        <div>
-            <button id="cardAdd">Create</button>
-        </div>
-    </div> -->
-
 <template id="tmpl-board">
     <div class="board bg-fix" style="background-image: url('${board_background}');">
         <div class="boardHeader flex-box">
@@ -64,7 +52,7 @@
         <div class="columnContent">
             ${column_content}
         </div>
-        <div class="appearFormCard" onclick="appearFormCard()">+ Add card</div>
+        <div class="appearFormCard" onclick="appearFormCard(${boardNumber}, ${columnNumber})">+ Add card</div>
         <div class="cardFormAdd">
             <div>
                 <input id="cardTitle" type="text">
@@ -73,7 +61,7 @@
                 <textarea id="cardDescription"></textarea>
             </div>
             <div class="flex-box">
-                <button id="cardAdd" onclick="cardAdd()">Create</button>
+                <button id="cardAdd" onclick="cardAdd(${boardNumber}, ${columnNumber})">Create</button>
                 <div class="closeForm" onclick="closeForm()"> X </div>
             </div>
         </div>

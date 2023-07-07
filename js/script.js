@@ -36,7 +36,6 @@ let wallpapers = [
 
 
 
-
 renderBoards();
 
 //function of saving
@@ -87,6 +86,10 @@ function renderBoards() {
             columnHtml = tmpl_column.replace('${column_header}', data['boards'][i]['columns'][j]['title'])
                                     .replace('${columnNumber}', j)
                                     .replace('${columnNumber}', j)
+                                    .replace('${boardNumber}', i)
+                                    .replace('${boardNumber}', i)
+                                    .replace('${columnNumber}', j)
+                                    .replace('${columnNumber}', j)
                                     .replace('${column_content}', columnCards);
 
             //add a text of COLUMN to columns of BOARD
@@ -119,7 +122,24 @@ function boardRename(number){
 function boardChangeBackground(number) {
 
     //get a link for background
-    let background = event.target.value;
+    // let background = event.target.value;
+
+    let body = document.body;
+
+    let images = document.querySelector('wallpapersCatalog');
+
+
+    for(i = 0; i < wallpapers.length; i++) {
+
+        images[i].addEventListener('click', ()=> {
+
+            let imageUrl = event.target.getAttribute('src');
+
+            body.style.backgroundImage = "url(" + imageUrl + ")";
+        })
+    }
+
+    console.log(images);
 
     //update background in model
     data['boards'][number]['background'] = background;
@@ -183,7 +203,7 @@ function columnDelete(number) {
 }
 
 //function for add a card (task)
-function cardAdd() {
+function cardAdd(boardNumber, columnNumber) {
     
     //declare an empty card
     let card = {};
@@ -197,15 +217,16 @@ function cardAdd() {
     card['description'] = description;
 
     //add a card in the model
-    data['boards'][0]['columns'][0]['cards'].push(card);
+    data['boards'][boardNumber]['columns'][columnNumber]['cards'].push(card);
 
     //run a model in console
     console.log(data);
 
     //rerender boards
     renderBoards();
-
+    
     save();
+    
 }
 
 
@@ -213,7 +234,7 @@ function cardAdd() {
 const form = document.querySelector('.cardFormAdd');
 
 //function of appearing card's form
-function appearFormCard() {
+function appearFormCard(boardNumber, columnNumber) {
 
     
     //after click, adding class with method classList.add
@@ -282,3 +303,4 @@ for (let i = 0; i < wallpapers.length; i++) {
     windowCatalog.appendChild(img);
 
 }
+

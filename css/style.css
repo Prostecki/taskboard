@@ -128,11 +128,15 @@ body {
 
 .closeForm {
     width: 20px;
-    height: 20px;
+    padding: 5px;
+    /* height: 20px; */
     background-color: black;
     color: white;
-    margin: 0 auto;
+    margin: 5px auto;
     cursor: pointer;
+    text-align: center;
+    line-height: 20px;
+    font-weight: bolder;
 }
 
 .card:hover .cardDelete {
@@ -216,7 +220,7 @@ body {
 .appearCatalogWallpapers {
     width: 370px;
     height: 100vh;
-    background-color: black;
+    background-color: rgb(70, 70, 70);
     position: absolute;
     top: 0;
     left: 0;
@@ -229,6 +233,6 @@ body {
     height: 65px;
     color: white;
     padding: 5px;
-    border: 1px solid white;
+    border: 0.5px solid gray;
     margin: 5px 5px auto;
 }
